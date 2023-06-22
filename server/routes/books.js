@@ -6,6 +6,7 @@ let mongoose = require('mongoose');
 // define the book model
 let book = require('../models/books');
 const books = require('../models/books');
+const { title } = require('process');
 
 /* GET books List page. READ */
 router.get('/', (req, res, next) => {
@@ -13,10 +14,9 @@ router.get('/', (req, res, next) => {
   book.find( (err, books) => {
     if (err) {
       return console.error(err);
-    }
-    else {
+    } else {
       res.render('books/index', {
-        title: 'Books',
+        title: 'Books List',
         books: books
       });
     }
@@ -31,9 +31,9 @@ router.get('/add', (req, res, next) => {
      * ADD CODE HERE *
      *****************/
     res.render('books/details', {
-      title: 'Add Book',
+      title: 'Add New Book',
       books: ''
-    })
+    });
 
 });
 
@@ -45,15 +45,16 @@ router.post('/add', (req, res, next) => {
      *****************/
     let newBook = new book({
       Title: req.body.title,
+      Description: req.body.description,
       Price: req.body.price,
       Author: req.body.author,
       Genre: req.body.genre
     });
 
-    book.create(newBook, (err, book) => {
+    book.create(newBook, (err, createBook) => {
       if (err) {
         console.log(err);
-        res.end(err);
+        res.send(err);
       }else{
         res.redirect('/books');
       }
@@ -69,10 +70,17 @@ router.get('/:id', (req, res, next) => {
      *****************/
     let id = req.params.id;
 
-    book.findById(id, (err,));
-        
+    book.findById(id, (err, bookEdit) => {
+      if (err) {
+        return console.log(err);
 
-
+      } else {
+          res.render('books/details', {
+          title: 'Edit Book Informations',
+          books: bookEdit
+        });
+      }
+    });
 });
 
 // POST - process the information passed from the details form and update the document
@@ -81,7 +89,24 @@ router.post('/:id', (req, res, next) => {
     /*****************
      * ADD CODE HERE *
      *****************/
+    let id = req.params.id;
 
+    let updatedBook = {
+      Title: req.body.title,
+      Description: req.body.description,
+      Price: req.body.price,
+      Author: req.body.author,
+      Genre: req.body.genre
+    };
+
+    book.updateOne({_id: id}, updatedBook, (err, createBook) =>{
+      if (err) {
+        console.log(err);
+        res.status(500).send(err);
+      }else{
+        res.redirect('/books');
+      }
+    });
 });
 
 // GET - process the delete by user id
@@ -90,6 +115,18 @@ router.get('/delete/:id', (req, res, next) => {
     /*****************
      * ADD CODE HERE *
      *****************/
+    let id = req.params.id;
+    book.remove({ _id: id }, (err) => {
+      if (err) {
+        console.log(err);
+        res.end(err);
+      }
+      else {
+        res.redirect('/books');
+      }
+  
+    });
+
 });
 
 
