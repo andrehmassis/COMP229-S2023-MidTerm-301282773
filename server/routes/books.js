@@ -5,6 +5,7 @@ let mongoose = require('mongoose');
 
 // define the book model
 let book = require('../models/books');
+const books = require('../models/books');
 
 /* GET books List page. READ */
 router.get('/', (req, res, next) => {
@@ -29,6 +30,10 @@ router.get('/add', (req, res, next) => {
     /*****************
      * ADD CODE HERE *
      *****************/
+    res.render('books/details', {
+      title: 'Add Book',
+      books: ''
+    })
 
 });
 
@@ -38,6 +43,21 @@ router.post('/add', (req, res, next) => {
     /*****************
      * ADD CODE HERE *
      *****************/
+    let newBook = new book({
+      Title: req.body.title,
+      Price: req.body.price,
+      Author: req.body.author,
+      Genre: req.body.genre
+    });
+
+    book.create(newBook, (err, book) => {
+      if (err) {
+        console.log(err);
+        res.end(err);
+      }else{
+        res.redirect('/books');
+      }
+    })
 
 });
 
@@ -47,6 +67,12 @@ router.get('/:id', (req, res, next) => {
     /*****************
      * ADD CODE HERE *
      *****************/
+    let id = req.params.id;
+
+    book.findById(id, (err,));
+        
+
+
 });
 
 // POST - process the information passed from the details form and update the document
