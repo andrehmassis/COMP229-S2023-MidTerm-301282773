@@ -1,3 +1,14 @@
+/* 
+Student Name: Andre Henrique Moyses de Assis
+Student number: 301282773
+Curse Name: Web Application Development
+Curse Code:COMP229
+Assignment: Mid-Term Test
+File: server.js
+Date: 2023-06-23
+*/
+
+
 let app = require('./server/config/app');
 let debug = require('debug')('comp229-S2023-midterm-301282773:server');
 let http = require('http');

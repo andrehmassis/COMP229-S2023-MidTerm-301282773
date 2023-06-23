@@ -1,3 +1,13 @@
+/* 
+Student Name: Andre Henrique Moyses de Assis
+Student number: 301282773
+Curse Name: Web Application Development
+Curse Code:COMP229
+Assignment: Mid-Term Test
+File: index.js
+Date: 2023-06-23
+*/
+
 // modules required for routing
 let express = require('express');
 let router = express.Router();
