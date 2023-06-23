@@ -61,6 +61,8 @@ router.post('/add', (req, res, next) => {
       Genre: req.body.genre
     });
 
+    //create a new book
+
     book.create(newBook, (err, createBook) => {
       if (err) {
         console.log(err);
@@ -108,6 +110,8 @@ router.post('/:id', (req, res, next) => {
       Author: req.body.author,
       Genre: req.body.genre
     };
+
+    //Update the book register
 
     book.updateOne({_id: id}, updatedBook, (err, createBook) =>{
       if (err) {

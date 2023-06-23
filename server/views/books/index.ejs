@@ -19,6 +19,7 @@ Date: 2023-06-23
           <!-- ------------------------ -->
           <!-- FIX THE ADD BUTTON BELOW -->
           <!-- ------------------------ -->
+          <!--Add Button-->
           <a href="/books/add" class="btn btn-primary"><i class="fa fa-plus"></i> Add a book</a>
           <br>
           <div class="table-responsive">
@@ -26,6 +27,7 @@ Date: 2023-06-23
               <thead>
                 <tr>
                   <th>Title</th>
+                  <!--Add description field-->
                   <th class="text-center">Description</th>
                   <th class="text-center">Price</th>
                   <th class="text-center">Author</th>
@@ -39,6 +41,7 @@ Date: 2023-06-23
                 <% for (let count = 0; count < books.length; count++) { %>
                 <tr>
                   <td><%= books[count].Title %></td>
+                  <!--Add description field-->
                   <td class="text-center"><%= books[count].Description %></td>
                   <td class="text-center">$<%= books[count].Price %></td>
                   <td class="text-center"><%= books[count].Author %></td>
@@ -48,6 +51,7 @@ Date: 2023-06-23
                     <!-- ------------------------ -->
                     <!-- ADD the EDIT BUTTON HERE -->
                     <!-- ------------------------ -->
+                    <!--Edit button-->
                     <a href="/books/<%= books[count]._id %>" class="btn btn-primary btn-sm">
                       <i class="fas fa-pencil-alt"></i> Edit</a>
                   </td>
@@ -56,6 +60,7 @@ Date: 2023-06-23
                     <!-- ------------------------ -->
                     <!-- ADD the DELETE BUTTON HERE -->
                     <!-- ------------------------ -->
+                    <!--Delete button-->
                     <a href="/books/delete/<%= books[count]._id %>" class="btn btn-danger btn-sm">
                       <i class="fas fa-trash-alt"></i> Delete</a>
                   </td>
