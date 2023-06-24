@@ -45,7 +45,7 @@
   },
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/andrehmassis/comp229-midterm"
   },
   "keywords": [
     "NodeJS",
@@ -55,7 +55,7 @@
   "author": "Andre Henrique Moyses de Assis",
   "license": "ISC",
   "bugs": {
-    "url": ""
+    "url": "https://github.com/andrehmassis/comp229-midterm"
   },
-  "homepage": ""
+  "homepage": "https://github.com/andrehmassis/comp229-midterm"
 }
