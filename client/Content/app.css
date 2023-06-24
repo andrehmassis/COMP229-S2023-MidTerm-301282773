@@ -13,3 +13,20 @@ body {
   background-color: rgb(251, 245, 238);
   padding-bottom: 70px;
 }
+
+.aboutrowrow:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.aboutcolumn1 {
+  float: left;
+  width: 180px; 
+  height: 250px;
+}
+.aboutcolumn2 {
+  float: left;
+  width: 60%;
+  margin-left: 5rem;
+
+}
